@@ -1,0 +1,19 @@
+<div class="container" style="padding: 2rem">
+  <h1>Gestão da Carteira de Ações</h1>
+
+  <section>
+    <h2>Saldo disponível: {{ saldo() | currency:'EUR':'symbol' }}</h2>
+
+    <!-- Formulário de compra/venda -->
+    <app-acoes-form (transacaoFinalizada)="atualizarCarteira()"></app-acoes-form>
+
+    <!-- Carteira -->
+    <h2>Carteira Atual</h2>
+    <button (click)="atualizarCotacoesSimuladas()">Atualizar Cotações</button>
+    <app-portfolio-table [carteira]="carteira()"></app-portfolio-table>
+
+    <!-- Histórico -->
+    <h2>Histórico de Transações</h2>
+    <app-historico-transacoes></app-historico-transacoes>
+  </section>
+</div>
