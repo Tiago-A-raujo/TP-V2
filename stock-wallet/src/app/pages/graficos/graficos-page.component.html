@@ -1,0 +1,10 @@
+<div class="container mt-4">
+  <h2>Resumo com Gráficos</h2>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="fs-5">Saldo atual: <strong>{{ saldo | currency:'EUR':'symbol' }}</strong></div>
+    <button class="btn btn-danger" (click)="limparCarteira()">Limpar Carteira</button>
+  </div>
+
+  <canvas id="graficoCarteira" height="100"></canvas>
+</div>
