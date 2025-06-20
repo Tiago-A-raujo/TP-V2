@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <h2>📊 Dashboard Financeira</h2>
+
+  <div class="row my-4">
+    <div class="col-md-3">
+      <div class="card p-3 shadow">
+        <h5>💰 Saldo Atual</h5>
+        <p class="fs-4">{{ saldo | currency:'EUR' }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card p-3 shadow">
+        <h5>📈 Valor Total Investido</h5>
+        <p class="fs-4">{{ carteiraTotal | currency:'EUR' }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card p-3 shadow">
+        <h5>📄 Total de Transações</h5>
+        <p class="fs-4">{{ transacoesTotal }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card p-3 shadow">
+        <h5>📊 Retorno Simulado</h5>
+        <p class="fs-4">{{ variacaoTotal | number: '1.1-2' }} %</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="mb-3">📊 Valor Atual por Ticker</h5>
+        <canvas id="graficoBarra"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="mb-3">📈 Evolução da Carteira (7 dias)</h5>
+        <canvas id="graficoLinha"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-12 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="mb-3">🥧 Distribuição Percentual</h5>
+        <canvas id="graficoPizza"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
