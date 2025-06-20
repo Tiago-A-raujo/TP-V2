@@ -1,0 +1,70 @@
+<form
+  (ngSubmit)="executarTransacao()"
+  class="p-4 border rounded shadow-sm bg-light"
+>
+  <h4 class="mb-4">Comprar ou Vender Ações</h4>
+  <div class="row mb-3">
+    <div class="col-md-2">
+      <label class="form-label">Tipo:</label>
+      <select class="form-select" [(ngModel)]="tipo" name="tipo" required>
+        <option value="COMPRA">Compra</option>
+        <option value="VENDA">Venda</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">Ticker:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="ticker"
+        name="ticker"
+        required
+        (blur)="atualizarPrecoPorTicker()"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label">Empresa:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="empresa"
+        name="empresa"
+        [disabled]="tipo === 'VENDA'"
+        required
+      />
+    </div>
+
+    <div class="col-md-2">
+      <label class="form-label">Quantidade:</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="quantidade"
+        name="quantidade"
+        min="1"
+        required
+      />
+    </div>
+
+    <div class="col-md-2">
+      <label class="form-label">Preço:</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="preco"
+        name="preco"
+        min="0.01"
+        step="0.01"
+        required
+      />
+    </div>
+
+    <div class="col-md-1 d-flex align-items-end">
+      <button type="submit" class="btn btn-primary w-100">
+        Executar {{ tipo === "COMPRA" ? "Compra" : "Venda" }}
+      </button>
+    </div>
+  </div>
+  <div *ngIf="mensagem" class="alert alert-info mt-3">{{ mensagem }}</div>
+</form>
