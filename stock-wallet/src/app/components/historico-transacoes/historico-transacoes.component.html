@@ -1,0 +1,21 @@
+<h3>Histórico de Transações</h3>
+<table border="1" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Tipo</th>
+      <th>Ticker</th>
+      <th>Quantidade</th>
+      <th>Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of transacoes">
+      <td>{{ t.data }}</td>
+      <td>{{ t.tipo }}</td>
+      <td>{{ t.ticker }}</td>
+      <td>{{ t.quantidade }}</td>
+      <td>{{ t.preco | number : "1.2-2" }} €</td>
+    </tr>
+  </tbody>
+</table>
