@@ -1,0 +1,39 @@
+<table class="table table-striped table-hover table-bordered align-middle">
+  <thead class="table-dark text-center">
+    <tr>
+      <th>Ticker</th>
+      <th>Empresa</th>
+      <th>Data da Compra</th>
+      <th>QT</th>
+      <th>PU</th>
+      <th>Total</th>
+      <th>Cotação do dia</th>
+      <th>Valor</th>
+      <th>Variação (%)</th>
+    </tr>
+  </thead>
+  <tbody class="text-center">
+    <tr *ngFor="let stock of carteira">
+      <td>{{ stock.ticker }}</td>
+      <td>{{ stock.empresa }}</td>
+      <td>{{ stock.dataCompra }}</td>
+      <td>{{ stock.quantidade }}</td>
+      <td>{{ stock.precoCompra | number : "1.2-2" }}</td>
+      <td>{{ stock.totalCompra | number : "1.2-2" }}</td>
+      <td>{{ stock.cotacaoAtual | number : "1.2-2" }}</td>
+      <td>{{ stock.totalAtual | number : "1.2-2" }}</td>
+      <td [style.color]="stock.variacaoCor">
+        {{ stock.variacaoPercentual | number : "1.2-2" }}%
+      </td>
+    </tr>
+    <tr class="fw-bold">
+      <td colspan="5" class="text-end">TOTAL</td>
+      <td>{{ totalCompra | number : "1.2-2" }}</td>
+      <td></td>
+      <td>{{ totalAtual | number : "1.2-2" }}</td>
+      <td [style.color]="corVariacaoTotal">
+        {{ variacaoTotal | number : "1.2-2" }}%
+      </td>
+    </tr>
+  </tbody>
+</table>
